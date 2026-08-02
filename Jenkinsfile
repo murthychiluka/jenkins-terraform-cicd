@@ -71,7 +71,7 @@ pipeline {
         timestamps()
 
         // ANSI color in logs
-        ansiColor('xterm')
+        // ansiColor('xterm')
     }
 
     stages {
