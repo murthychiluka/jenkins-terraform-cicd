@@ -63,24 +63,24 @@ pipeline {
         // ─────────────────────────────
         // STAGE 2: Install Terraform
         // ─────────────────────────────
-        stage('Install Terraform') {
-            steps {
-                sh '''
-                    if command -v terraform &> /dev/null; then
-                        echo "Terraform already installed!"
-                        terraform version
-                    else
-                        echo "Installing Terraform..."
-                        wget -q https://releases.hashicorp.com/terraform/1.6.0/terraform_1.6.0_linux_amd64.zip
-                        unzip -q terraform_1.6.0_linux_amd64.zip
-                        sudo mv terraform /usr/local/bin/
-                        rm -f terraform_1.6.0_linux_amd64.zip
-                        terraform version
-                        echo "Terraform installed! ✅"
-                    fi
+        // stage('Install Terraform') {
+        //     steps {
+        //         sh '''
+        //             if command -v terraform &> /dev/null; then
+        //                 echo "Terraform already installed!"
+        //                 terraform version
+        //             else
+        //                 echo "Installing Terraform..."
+        //                 wget -q https://releases.hashicorp.com/terraform/1.6.0/terraform_1.6.0_linux_amd64.zip
+        //                 unzip -q terraform_1.6.0_linux_amd64.zip
+        //                 sudo mv terraform /usr/local/bin/
+        //                 rm -f terraform_1.6.0_linux_amd64.zip
+        //                 terraform version
+        //                 echo "Terraform installed! ✅"
+        //             fi
                 '''
-            }
-        }
+        //     }
+        // }
 
         // ─────────────────────────────
         // STAGE 3: Terraform Init
