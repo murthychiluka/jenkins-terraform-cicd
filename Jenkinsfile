@@ -78,7 +78,7 @@ pipeline {
         //                 terraform version
         //                 echo "Terraform installed! ✅"
         //             fi
-                '''
+                // '''
         //     }
         // }
 
