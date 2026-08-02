@@ -225,11 +225,7 @@ pipeline {
         }
         failure {
             echo "❌ Pipeline FAILED!"
-            mail(
-                to: 'murthy@example.com',
-                subject: "FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: "Build failed! Check: ${env.BUILD_URL}"
-            )
+           
         }
         aborted {
             echo "⚠️ Pipeline ABORTED!"
