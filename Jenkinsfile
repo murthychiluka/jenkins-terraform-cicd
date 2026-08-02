@@ -95,7 +95,7 @@ pipeline {
                 ]]) {
                     sh '''
                         echo "Initializing Terraform..."
-                        cd terraform
+                     
                         terraform init
                         echo "Init complete! ✅"
                     '''
@@ -110,7 +110,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Validating..."
-                    cd terraform
+            
                     terraform validate
                     echo "Validation passed! ✅"
                 '''
@@ -130,7 +130,7 @@ pipeline {
                 ]]) {
                     sh """
                         echo "Running plan for ${params.ENVIRONMENT}..."
-                        cd terraform
+    
                         terraform plan \
                             -var='environment=${params.ENVIRONMENT}' \
                             -out=tfplan
@@ -177,7 +177,7 @@ pipeline {
                 ]]) {
                     sh '''
                         echo "Applying..."
-                        cd terraform
+                        
                         terraform apply \
                             -auto-approve \
                             tfplan
@@ -203,7 +203,7 @@ pipeline {
                 ]]) {
                     sh """
                         echo "Destroying ${params.ENVIRONMENT}..."
-                        cd terraform
+                      
                         terraform destroy \
                             -var='environment=${params.ENVIRONMENT}' \
                             -auto-approve
